@@ -1,3 +1,10 @@
+//Criar uma função calc que recebe um valor
+//Usar a função parseInt para transformar o valor do campo em número
+//Usar os operadores matemáticos para realizar as operações
+//Usar a função eval para processar a sentença matemática
+
+
+
 //Lógica do cálculo	
 function calcular(a, b, operacao) {
     let resultado;
