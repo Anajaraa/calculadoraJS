@@ -1,41 +1,41 @@
-//Criar uma função calc que recebe um valor
-//Usar a função parseInt para transformar o valor do campo em número
-//Usar os operadores matemáticos para realizar as operações
-//Usar a função eval para processar a sentença matemática
+//  variáveis
+let display = document.getElementById("display");
+let equacao = "";
 
-
-
-//Lógica do cálculo	
-function calcular(a, b, operacao) {
-    let resultado;
-    switch (operacao) {
-        case "+":
-            resultado = a + b;
-            break;
-        case "-":
-            resultado = a - b;
-            break;
-        case "*":
-            resultado = a * b;
-            break;
-        case "/":
-            resultado = a / b;
-            break;
-        default:
-            resultado = null;
-    }
-    return resultado;
-    
+//  display
+function adicionar(valor) {
+    equacao += valor;
+    display.value = equacao;
 }
 
-// display
+// equação
+function calcular() {
+    try {
+        equacao = eval(equacao); 
+        display.value = equacao;
+    } catch (erro) {
+        display.value = "Erro";
+    }
+}
 
+// limpa
+function limpar() {
+    equacao = "";
+    display.value = "";
+}
 
-// limpeza do display
+//  porcentagem
+function adicionarPorcentagem() {
+    equacao = eval(equacao) / 100;
+    display.value = equacao;
+}
 
-
-//reset
-
-//cálculo
-
-
+//  ponto decimal corretamente
+function adicionarPonto() {
+    if (equacao === "" || equacao.slice(-1).match(/[+\-*/%]/)) {
+        equacao += "0.";
+    } else if (!equacao.includes(".")) {
+        equacao += ".";
+    }
+    display.value = equacao;
+}
